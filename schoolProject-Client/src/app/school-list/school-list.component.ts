@@ -1,13 +1,12 @@
-import {ChangeDetectorRef, Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {SchoolService} from '../school.service';
 import {Router} from '@angular/router';
 import {MatTableDataSource} from '@angular/material/table';
-import {MatSort, MatSortHeaderIntl} from '@angular/material/sort';
+import {MatSort} from '@angular/material/sort';
 import {MatPaginator, MatPaginatorIntl} from '@angular/material/paginator';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {SchoolAddComponent} from '../school-add/school-add.component';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-
 
 
 export interface ISchool {
@@ -84,10 +83,8 @@ export class SchoolListComponent implements OnInit {
   // tslint:disable-next-line:typedef
   RenderTable(list: any) {
     this._list = list;
-    console.log('this._list', this._list);
     this.dataSource = new MatTableDataSource(this._list);
     this.dataSource.data = this._list;
-    console.log(this.dataSource.data);
     this.dataSource.sort = this.sort;
     setTimeout(() => this.dataSource.paginator = this.paginator);
     hideloader();
@@ -101,7 +98,6 @@ export class SchoolListComponent implements OnInit {
     filterValue = filterValue.value.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
-    console.log(filterValue.lastIndexOf);
   }
 
 
