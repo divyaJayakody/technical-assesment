@@ -10,7 +10,7 @@ import {FormGroup, FormBuilder, FormControl, FormGroupDirective, NgForm, Validat
   styleUrls: ['./school-add.component.css']
 })
 export class SchoolAddComponent implements OnInit {
-  addSchlVald: FormGroup;
+  addSchlVald: FormGroup | any;
 
   constructor(private fb: FormBuilder,
     public dialogRef: MatDialogRef<SchoolListComponent>,

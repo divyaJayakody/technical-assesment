@@ -6,7 +6,7 @@
     <div class="example-header" style="margin-top:1%">
       <mat-form-field>
         <span matSuffix> <i class="material-icons" style="size:36px;">search</i> </span>
-        <input type="search" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter"/>
+        <input type="search" matInput (keyup)="applyFilter($any($event.target))" placeholder="Filter"/>
       </mat-form-field>
       <button (click)="addSchoolPopUp()" style="float: right;background-color: darkcyan;height:50px;width:50px"
               mat-mini-fab>

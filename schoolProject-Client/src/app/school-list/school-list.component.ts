@@ -25,6 +25,7 @@ export interface ISchool {
   templateUrl: './school-list.component.html',
   styleUrls: ['./school-list.component.css']
 })
+
 export class SchoolListComponent implements OnInit {
 
   fschoolName: '' | undefined;
@@ -33,6 +34,7 @@ export class SchoolListComponent implements OnInit {
   fsuburb: '' | undefined;
   fpostcode: 0 | undefined;
   fstate: '' | undefined;
+
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -93,9 +95,10 @@ export class SchoolListComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  applyFilter(filterValue: string) {
+  applyFilter(filterValue: any) {
+    // @ts-ignore
     console.log('applyFilter()');
-    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.value.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
     console.log(filterValue.lastIndexOf);
@@ -169,6 +172,7 @@ function hideloader() {
     .style.display = 'none';
 }
 
+// tslint:disable-next-line:typedef
 function showloader() {
 
   // Setting display of spinner
