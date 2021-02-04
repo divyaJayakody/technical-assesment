@@ -1,0 +1,15 @@
+version: '3.0' # specify docker-compose version
+ 
+# Define the services/ containers to be run
+services:
+ angular: # name of the first service
+  build: schoolProject-Client # specify the directory of the Dockerfile
+  ports:
+  - "4200:4200" # specify port mapping
+ 
+ express: # name of the second service
+  build: schoolProject-API # specify the directory of the Dockerfile
+  ports:
+  - "3000:3000" #specify ports mapping
+  
+ 
